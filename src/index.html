@@ -26,6 +26,11 @@
     </div>
     <script>
         const data = [{
+            href: "memes_new.html",
+            title: "Memes",
+            description: "See latest Sinhala memes",
+            image: "assets/meme.svg"
+        }, {
             href: "funny_videos.html",
             title: "Funny Videos",
             description: "Random cool videos",
@@ -35,16 +40,6 @@
             title: "Download Songs",
             description: "Listen to your favourite songs",
             image: "assets/music.svg"
-        }, {
-            href: "https://piratemeet.glitch.me/",
-            title: "Meeting App for Pirates",
-            description: "Free meeting App",
-            image: "assets/meet.svg"
-        }, {
-            href: "memes_new.html",
-            title: "Memes",
-            description: "See latest Sinhala memes",
-            image: "assets/meme.svg"
         }, {
             href: "movies.html",
             title: "Movies",
@@ -60,11 +55,6 @@
             title: "Wallpapers Download",
             description: "Download Desktop/Mobile wallpapers",
             image: "assets/wallpaper.svg"
-        }, {
-            href: "radio.html",
-            title: "Listen To Online Radio",
-            description: "Listen to online radio stations",
-            image: "assets/radio.svg"
         }];
         data.forEach(item => {
             var line = `<li><a href="${item.href}"><div class="mainpage"> <img src="${item.image}" alt="${item.title}"> <div> <p><b>${item.title}<br></b></p> <p>${item.description}</p> </div> </div> </a></li>`;
@@ -72,9 +62,9 @@
         });
     </script>
 
-    <footer style="font-size: smaller; width:100%; display:flex; justify-content: center;"><span>Made with ❤️ by
-            SuhasDissanayake</span> · <a style="color: #6d4aff;" target="_blank"
-            href="https://github.com/SuhasDissa/PirateIsland"> Hack this website! </a></footer>
+    <footer><span>Made with ❤️ by
+            SuhasDissanayake</span> · <a target="_blank" href="https://github.com/SuhasDissa/PirateIsland"> Hack this
+            website! </a></footer>
 </body>
 
 </html>

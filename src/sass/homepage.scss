@@ -29,14 +29,7 @@ html {
     }
 }
 
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
-    text-decoration: none;
-    color: #000000;
-}
+
 
 div.mainrow {
     width: 100%;
@@ -56,6 +49,9 @@ div.mainrow {
             padding: 2% 10%;
 
             a {
+                text-decoration: none;
+                color: #000000;
+
                 div.mainpage {
                     background: rgba(255, 255, 255, 0.25);
                     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -88,6 +84,17 @@ div.mainrow {
                 }
             }
         }
+    }
+}
+
+footer {
+    font-size: smaller;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    a {
+        color: main.$accent-dark;
     }
 }
 
