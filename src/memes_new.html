@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Memes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/meme.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <a class="curl" href="index.html"><img src="assets/home.png" alt="" class="src"></a>
+    <div class="navbar">
+        <div class="topnav" id="myTopnav"> <a class="active" href="memes_fav.html">Pinned Memes</a> <a
+                href="memes_new.html?r=tkasylum">KOTA</a> <a href="memes_new.html?r=piefm">Maniya</a> <a
+                href="memes_new.html?r=sinhalamemes">Sinhala Memes</a> <a href="memes_new.html?r=memes">Memes</a> <a
+                href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+        </div>
+    </div>
+    <div class="inputdiv"> <label for="limit">No of memes to load</label> <input type="number" id="limit" name="limit"
+            max="500" value="100" step="1"> <label for="sort">Sort By</label> <select name="sort" id="sort"
+            onChange="if(this.value.toString()=='top'){document.getElementById('timelabel').style.display='inline-block';document.getElementById('time').style.display='inline-block';}else{document.getElementById('timelabel').style.display='none';document.getElementById('time').style.display='none';}">
+            <option value="top">Top</option>
+            <option value="hot">Hot</option>
+            <option value="new">New</option>
+        </select> <label for="time" id="timelabel">Sort By</label> <select name="time" id="time">
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+            <option value="year">This Year</option>
+            <option value="all">All Time</option>
+        </select> <button class="button" onclick="custom()">Load Memes</button> </div>
+    <div class="loader" id="loader"></div>
+    <div>
+        <ul class="meme" id="memeul"></ul>
+    </div>
+    <script>
+        function newPopup(url) {
+            popupWindow = window.open(url, 'popUpWindow', 'height=500,width=400,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no,status=yes')
+        }
+        LoadMemes("top", "today", "200");
+
+        function LoadMemes(sort, time, limit) {
+            reddit = location.toString().split('?r=');
+            if (typeof reddit[1] !== 'undefined') {
+                fetchUrl = `https://www.reddit.com/r/${reddit[1]}/top/.json?sort=${sort}&t=${time}&limit=${limit}`
+            } else {
+                fetchUrl = `https://www.reddit.com/r/tkasylum/top/.json?sort=${sort}&t=${time}&limit=${limit}`
+            }
+            const imageList = document.getElementById("memeul");
+            imageList.innerHTML = "";
+            var memelist = [];
+            var loader = document.getElementById("loader");
+            fetch(fetchUrl).then(data => {
+                return data.json();
+            }).then(posts => {
+                posts.data.children.forEach(post => {
+                    var imgurl = post.data.url;
+                    if (imgurl.endsWith("png") || imgurl.endsWith("jpg") || imgurl.endsWith("jpeg") || imgurl.endsWith("webp")) {
+                        imageList.innerHTML += '<li class="meme"><button class="meme" onclick="pin(\'' + imgurl + '\')">📌</button><img class="meme" src="' + imgurl + '"></li>';
+                    } else if (imgurl.includes("v.redd.it")) {
+                        var vidlink = post.data.permalink.split("/").slice(-3).join("/")
+                        vidlink = "https://www.redditmedia.com/mediaembed/" + vidlink
+                        console.log(vidlink)
+                        imageList.innerHTML += '<li class="meme"><a class="meme" href="JavaScript:newPopup(\'' + vidlink + '\');"> <img class="meme" src="' + post.data.preview.images[0].source.url + '"><div class="meme-playbutton"></div> </a></li>';
+                    };
+                });
+                loader.style.display = "none";
+            });
+        }
+
+        function pin(imgurl) {
+            const postData = {
+                link: imgurl
+            };
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(postData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            fetch("https://desertislandapi.suhasdissa.repl.co/memes", options)
+                .then(res => res.json())
+                .then(res => console.log(res));
+            alert("Pinned the meme to favourite memes")
+        }
+
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+        function custom() {
+            var memetime = document.getElementById("time").value.toString();
+            var memesort = document.getElementById("sort").value.toString();
+            var memelimit = document.getElementById("limit").value.toString();
+            if (memesort !== "top") {
+                memetime = "";
+            }
+            LoadMemes(memesort, memetime, memelimit)
+        }
+    </script>
+</body>
+
+</html>

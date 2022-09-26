@@ -1,0 +1,114 @@
+@use 'main';
+
+html {
+    height: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    .coolfont {
+        font-family: "Outfit", sans-serif;
+        font-weight: bolder;
+        color: #ffffff;
+        text-align: center;
+        display: block;
+        font-size: 100px;
+        transition-duration: 100ms;
+        text-shadow: 0 0 17px #00000052;
+
+        &:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 1.25rem rgb(0 0 0 / 8%);
+            cursor: default;
+        }
+    }
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #000000;
+}
+
+div.mainrow {
+    width: 100%;
+
+    ul#menulist {
+        margin: 0px;
+        padding: 10px;
+        width: auto;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 10px;
+        column-gap: 10px;
+
+        li {
+            position: relative;
+            padding: 2% 10%;
+
+            a {
+                div.mainpage {
+                    background: rgba(255, 255, 255, 0.25);
+                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+                    backdrop-filter: blur(12.5px);
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 31px;
+                    transition-duration: 100ms;
+
+                    div {
+                        padding: 10px;
+                    }
+
+                    img {
+                        width: 100%;
+                        border-radius: 20px;
+                        transition-duration: 100ms;
+                    }
+                }
+
+                &:hover {
+                    div.mainpage {
+                        border-radius: 15px;
+
+                        img {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coolfont {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 540px) {
+    .coolfont {
+        font-size: 60px
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

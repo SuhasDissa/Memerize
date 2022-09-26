@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+$accent: #ff930f;
+$accent-light: #fff95b;
+$accent-hov: #ffca8a;
+$secondary: #ffd562;
+$background-gray: #e0e5ec;
+$gray: #7e8a98;
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    background-color: $accent-light;
+    background: radial-gradient(ellipse at 21% 22%, #ff930f 0%, #fff95b 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+#loader {
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    div {
+        width: 200px;
+        height: 200px;
+        background-image: url("../assets/loading.svg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+button,
+input {
+    all: unset;
+}
+
+.curl {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    right: 10px;
+    transition-duration: 200ms;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition-duration: 100ms;
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.3);
+        }
+    }
+}

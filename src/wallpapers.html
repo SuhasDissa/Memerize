@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wallpapers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/meme.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <a class="curl" href="index.html"><img src="assets/home.png" alt="" class="src"></a>
+    <div class="inputdiv"> <label for="limit">No of wallpapers to load</label> <input type="number" id="limit"
+            name="limit" max="500" value="100" step="1"> <label for="sort">Sort By</label> <select name="sort" id="sort"
+            onChange="if(this.value.toString()=='top'){document.getElementById('timelabel').style.display='inline-block';document.getElementById('time').style.display='inline-block';}else{document.getElementById('timelabel').style.display='none';document.getElementById('time').style.display='none';}">
+            <option value="top">Top</option>
+            <option value="hot">Hot</option>
+            <option value="new">New</option>
+        </select> <label for="time" id="timelabel">Sort By</label> <select name="time" id="time">
+            <option value="today">Today</option>
+            <option value="week">This Week</option>
+            <option value="month">This Month</option>
+            <option value="year">This Year</option>
+            <option value="all">All Time</option>
+        </select> <button onclick="custom()">Load Wallpapers</button> </div>
+    <div class="loader" id="loader"></div>
+    <div>
+        <ul class="meme" style="grid-template-columns: repeat(2, 1fr);" id="memeul"></ul>
+    </div>
+    <script>
+        var URL = "https://www.reddit.com/r/wallpaper/top/.json?sort=top&t=today&limit=20";
+        const imageList = document.getElementById("memeul");
+        fetch(URL).then(data => {
+            return data.json();
+        }).then(posts => {
+            hideLoader();
+            posts.data.children.forEach(post => {
+                let postObject = {
+                    imgurl: post.data.preview.images[0].resolutions[3].url,
+                    highresurl: post.data.url
+                };
+                var image = '<li class="meme"><a href="' + postObject.highresurl + '" download><img class="meme" src="' + postObject.imgurl + '"></a></li>';
+                imageList.innerHTML += image;
+            });
+        });
+
+        function LoadMemes(sort, time, limit) {
+            fetchUrl = "https://www.reddit.com/r/wallpaper/top/.json?sort=" + sort + "&t=" + time + "&limit=" + limit
+            const imageList = document.getElementById("memeul");
+            imageList.innerHTML = "";
+            var loader = document.getElementById("loader");
+            fetch(fetchUrl).then(data => {
+                return data.json();
+            }).then(posts => {
+                posts.data.children.forEach(post => {
+                    let postObject = {
+                        imgurl: post.data.preview.images[0].resolutions[3].url,
+                        highresurl: post.data.url
+                    };
+                    var image = '<li class="meme"><a href="' + postObject.highresurl + '" download><img class="meme" src="' + postObject.imgurl + '"></a></li>';
+                    imageList.innerHTML += image;
+                });
+                loader.style.display = "none";
+            });
+        }
+
+        function custom() {
+            var memetime = document.getElementById("time").value.toString();
+            var memesort = document.getElementById("sort").value.toString();
+            var memelimit = document.getElementById("limit").value.toString();
+            if (memesort !== "top") {
+                memetime = "";
+            }
+            LoadMemes(memesort, memetime, memelimit)
+        }
+
+        function hideLoader() {
+            var loader = document.getElementById("loader");
+            loader.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

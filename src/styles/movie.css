@@ -1,0 +1,103 @@
+ul.movie {
+    margin: 0px;
+    padding: 10px;
+    width: auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    ul.movie {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    ul.movie {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul.movie {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    ul.movie {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+li.movie {
+    position: relative;
+}
+
+li.movie>div.movie {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    background-color: var(--secondary);
+    overflow: hidden;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+    transition-duration: 100ms;
+}
+
+li.movie>div.movie:hover {
+
+    cursor: pointer;
+
+    box-shadow: 0 0.125rem 1.25rem 1em rgb(0 0 0 / 8%);
+    transform: scale(1.05);
+}
+
+li.movie>div.movie img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+li.movie>div.movie div.movie_title {
+    height: fit-content;
+    color: black;
+    padding: 10px;
+    font-size: 18px;
+
+    width: 100%;
+}
+
+li.movie>div.movie div.movie_year {
+    height: fit-content;
+    color: black;
+    font-size: 15px;
+    padding: 10px;
+
+    width: 100%;
+}
+
+div#moviecollection {
+    overflow: hidden;
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+    li.movie>div.movie {
+    background-color: #16161694;
+}
+    li.movie>div.movie div.movie_title {
+        color: white;
+    }
+
+    li.movie>div.movie div.movie_year {
+        color: white;
+    }
+}*/
+
+.tablepadding {
+    height: fit-content;
+}

@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Outfit);
+
+body,
+html {
+    height: 100%;
+}
+
+.coolfont {
+    font-family: "Outfit", sans-serif;
+    font-weight: bolder;
+    color: #ffffff;
+    text-align: center;
+    display: block;
+    font-size: 100px;
+    transition-duration: 100ms;
+    text-shadow: 0 0 17px #00000052;
+}
+
+.header {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    background-color: transparent;
+    opacity: 0.8;
+    color: rgb(0, 0, 0);
+    padding: 18px;
+    letter-spacing: 10px;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #4a4a4a;
+}
+
+body {
+    margin: 0px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: left;
+}
+
+
+
+
+
+
+@media screen and (max-width: 650px) {
+    ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coolfont {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 540px) {
+    .coolfont {
+        font-size: 60px
+    }
+}
+
+@media screen and (max-width: 400px) {
+    ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.coolfont:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 1.25rem rgb(0 0 0 / 8%);
+    cursor: default;
+}

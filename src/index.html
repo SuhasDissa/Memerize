@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Memerize</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-text"> <span class="coolfont">Memerize</span> </div>
+    </div>
+    <div class="mainrow">
+        <ul id="menulist"> </ul>
+    </div>
+    <script>
+        const data = [{
+            href: "funny_videos.html",
+            title: "Funny Videos",
+            description: "Random cool videos",
+            image: "assets/video.svg"
+        }, {
+            href: "https://auralmusic.netlify.app",
+            title: "Download Songs",
+            description: "Listen to your favourite songs",
+            image: "assets/music.svg"
+        }, {
+            href: "https://piratemeet.glitch.me/",
+            title: "Meeting App for Pirates",
+            description: "Free meeting App",
+            image: "assets/meet.svg"
+        }, {
+            href: "memes_new.html",
+            title: "Memes",
+            description: "See latest Sinhala memes",
+            image: "assets/meme.svg"
+        }, {
+            href: "movies.html",
+            title: "Movies",
+            description: "Movie Downloader",
+            image: "assets/movie.svg"
+        }, {
+            href: "youtube.html",
+            title: "Youtube Video Download",
+            description: "Download Youtube Videos",
+            image: "assets/youtube.svg"
+        }, {
+            href: "wallpapers.html",
+            title: "Wallpapers Download",
+            description: "Download Desktop/Mobile wallpapers",
+            image: "assets/wallpaper.svg"
+        }, {
+            href: "radio.html",
+            title: "Listen To Online Radio",
+            description: "Listen to online radio stations",
+            image: "assets/radio.svg"
+        }];
+        data.forEach(item => {
+            var line = `<li><a href="${item.href}"><div class="mainpage"> <img src="${item.image}" alt="${item.title}"> <div> <p><b>${item.title}<br></b></p> <p>${item.description}</p> </div> </div> </a></li>`;
+            document.getElementById("menulist").innerHTML += line;
+        });
+    </script>
+
+    <footer style="font-size: smaller; width:100%; display:flex; justify-content: center;"><span>Made with ❤️ by
+            SuhasDissanayake</span> · <a style="color: #6d4aff;" target="_blank"
+            href="https://github.com/SuhasDissa/PirateIsland"> Hack this website! </a></footer>
+</body>
+
+</html>

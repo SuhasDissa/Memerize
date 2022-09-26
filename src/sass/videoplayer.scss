@@ -1,0 +1,199 @@
+@use 'main';
+
+.container {
+    width: 80%;
+    margin: 80px auto;
+}
+
+p {
+    margin-left: 20px;
+    color: #000000;
+    line-height: 22px;
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+    column-gap: 40px;
+
+    li {
+        padding: 0px 0px;
+        overflow: hidden;
+        transition-duration: 100ms;
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(12.5px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0.125rem 1.25rem 1em rgb(0 0 0 / 8%);
+        }
+    }
+}
+
+.addnew {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 100px;
+    padding: 10px;
+    border-radius: 25px;
+    right: 10px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(12.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: x-large;
+    font-weight: bolder;
+    overflow: hidden;
+
+    &:before {
+        text-align: center;
+        content: '➕'
+    }
+
+    &:after {
+        content: 'Add New Videos';
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+        width: fit-content;
+
+        &:after {
+            display: inline-block;
+        }
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+video:focus {
+    outline: none;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#player {
+    border-radius: 20px;
+}
+
+#videoPlayer {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    display: block;
+}
+
+@media (orientation: landscape) {
+    #videoPlayer {
+        height: 90%;
+    }
+
+    #player {
+        height: 100%;
+    }
+}
+
+@media (orientation: portrait) {
+    #videoPlayer {
+        width: 90%;
+    }
+
+    #player {
+        width: 100%;
+    }
+}
+
+.videopadding {
+    background-color: #000000a4;
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#newpost div {
+    font-size: 30px;
+    display: flex;
+    margin: 10px;
+}
+
+#newpost div label {
+    font-size: 20px;
+    width: 25%;
+    display: inline-block;
+}
+
+#newpost div input,
+#newpost div textarea {
+    font-size: 20px;
+    width: 75%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+#newpostpadding {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000061;
+    backdrop-filter: blur(6px);
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#newpostpadding>div {
+    width: 50%;
+    height: fit-content;
+    font-size: 30px;
+    padding: 30px;
+    background-color: rgb(227 227 227);
+    border-radius: 50px;
+}
+
+#newpostpadding>div>div.toolbar {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: fit-content;
+}
+
+@media screen and (max-width: 700px) {
+    #newpostpadding>div {
+        width: 80%;
+    }
+
+    .title {
+        font-size: 80px;
+    }
+
+    ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,93 @@
+@use 'table';
+@use 'main';
+
+ul.movie {
+    margin: 0px;
+    padding: 10px;
+    width: auto;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 10px;
+    column-gap: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    ul.movie {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    ul.movie {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul.movie {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    ul.movie {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+li.movie {
+    position: relative;
+}
+
+li.movie>div.movie {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+    background-color: main.$secondary;
+    overflow: hidden;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+
+    img {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px 20px 0 0;
+        transition-duration: 200ms;
+    }
+
+    div.movie_title {
+        height: fit-content;
+        color: black;
+        padding: 10px;
+        font-size: 18px;
+
+        width: 100%;
+    }
+
+    div.movie_year {
+        height: fit-content;
+        color: black;
+        font-size: 15px;
+        padding: 10px;
+
+        width: 100%;
+    }
+}
+
+li.movie>div.movie:hover {
+    cursor: pointer;
+
+    img {
+        transform: scale(1.1);
+    }
+}
+
+
+div#moviecollection {
+    overflow: hidden;
+}
+
+.tablepadding {
+    height: fit-content;
+}

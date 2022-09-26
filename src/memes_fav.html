@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Memes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/meme.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+    <div class="loader" id="loader"></div>
+    <a class="curl" href="index.html"><img src="assets/home.png" alt="" class="src"></a>
+    <div>
+        <ul class="meme" id="memeul"></ul>
+    </div>
+    <script>
+        const imageList = document.getElementById("memeul");
+        var loader = document.getElementById("loader");
+        fetch("https://desertislandapi.suhasdissa.repl.co/memes", {
+            method: 'GET',
+        }).then(data => {
+            console.log(data);
+            return data.json();
+        }).then(obj => {
+            console.log(obj);
+            obj.slice().reverse().forEach(posts => {
+                imageList.innerHTML += `<li class="meme"><img class="meme" src="${posts.link}"></li>`
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/table.css">
+    <title>Youtube Downloader</title>
+</head>
+
+<body>
+    <div id="loader">
+        <div></div>
+    </div>
+    <a class="curl" href="index.html"><img src="assets/home.png" alt="" class="src"></a>
+    <div class="inputdevfixed">
+        <input type="text" id="search" placeholder="Search Or Enter Youtube URL"> <button class="button" type="button"
+            onclick="Search()" id="button">Search</button>
+    </div> <br><br>
+    <br>
+    <div class="tablepadding">
+        <div id="tablediv" style="max-height:auto;">
+            <h1 id="title"></h1>
+            <img src="" id="thumbnail">
+            <table id="result" class="result">
+                <tr>
+                    <th>Resolution</th>
+                    <th>Container</th>
+                    <th>Quality</th>
+                    <th>Link</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script src="scripts/youtube.js"></script>
+</body>
+
+</html>
