@@ -7,15 +7,15 @@ $accent-hov: #ffca8a;
 $secondary: #ffd562;
 $background-gray: #e0e5ec;
 $gray: #7e8a98;
+$background: #ffca2b;
 
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
     background-color: $accent-light;
-    background: radial-gradient(ellipse at 21% 22%, #ff930f 0%, #fff95b 100%);
+    background: $background;
     background-size: cover;
     background-attachment: fixed;
-    height: 100%;
 }
 
 #loader {
