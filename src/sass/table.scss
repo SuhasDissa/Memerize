@@ -132,28 +132,28 @@
 @media screen and (max-width: 600px) {
     .result {
         tr {
-            font-size: 11px;
+            font-size: 11px !important;
 
             .button {
-                font-size: 10px;
-                padding: 10px;
+                font-size: 10px !important;
+                padding: 10px !important;
             }
 
         }
 
         td img {
-            border-radius: 5px;
+            border-radius: 5px !important;
         }
     }
 }
 
 @media screen and (max-width: 500px) {
     .result tr {
-        font-size: 9px;
+        font-size: 9px !important;
 
         .button {
-            font-size: 7px;
-            padding: 5px;
+            font-size: 7px !important;
+            padding: 5px !important;
         }
     }
 }
