@@ -7,13 +7,12 @@ $accent-hov: #ffca8a;
 $secondary: #ffd562;
 $background-gray: #e0e5ec;
 $gray: #7e8a98;
-$background: #ffca2b;
+$background: #fff39c;
 
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    background-color: $accent-light;
-    background: $background;
+    background-color: $background;
     background-size: cover;
     background-attachment: fixed;
 }
