@@ -1,13 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-$accent: #ff930f;
-$accent-light: #ffc783;
-$accent-dark: #6b4414;
-$accent-hov: #ffca8a;
-$secondary: #ffd562;
-$background-gray: #e0e5ec;
-$gray: #7e8a98;
+$accent: #ffca2b;
+$accent-hov: #ffdb6f;
+
+
 $background: #fff39c;
+$background-light: #fff7be;
 
 body {
     margin: 0;
@@ -52,10 +50,7 @@ input {
     right: 10px;
     transition-duration: 200ms;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(12.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: $accent;
 
     img {
         width: 100%;
@@ -64,6 +59,8 @@ input {
     }
 
     &:hover {
+        background-color: $accent-hov;
+
         img {
             transform: scale(1.3);
         }

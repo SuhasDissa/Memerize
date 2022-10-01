@@ -11,7 +11,7 @@ html {
     align-items: center;
     display: flex;
     justify-content: center;
-    background: #ffca2b;
+    background: main.$accent;
     position: relative;
 
     &::after {
@@ -39,7 +39,6 @@ html {
 
         &:hover {
             transform: scale(1.05);
-            cursor: default;
         }
     }
 }
@@ -54,7 +53,7 @@ div.mainrow {
         width: auto;
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         row-gap: 10px;
         column-gap: 10px;
 
@@ -67,11 +66,15 @@ div.mainrow {
                 color: #000000;
 
                 div.mainpage {
-                    backdrop-filter: brightness(1.2);
+                    background-color: main.$background-light;
                     width: 100%;
                     object-fit: cover;
                     border-radius: 31px;
                     transition-duration: 100ms;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    align-items: center;
+                    justify-content: center;
 
                     div {
                         padding: 10px;
@@ -105,28 +108,41 @@ footer {
     justify-content: center;
 
     a {
-        color: main.$accent-dark;
+        color: main.$accent;
     }
 }
 
-@media screen and (max-width: 650px) {
-    ul#menulist {
-        grid-template-columns: repeat(2, 1fr) !important;
+@media (width< 650px) {
+
+    div.mainrow {
+        ul#menulist {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
-    .coolfont {
-        font-size: 80px !important;
+    .header {
+        .coolfont {
+            font-size: 80px;
+        }
     }
 }
 
-@media (max-width: 540px) {
-    .coolfont {
-        font-size: 60px !important;
+@media (width< 540px) {
+    .header {
+        .coolfont {
+            font-size: 60px;
+        }
     }
-}
 
-@media screen and (max-width: 400px) {
-    ul#menulist {
+    div.mainpage {
         grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
+@media (width< 400px) {
+    div.mainrow {
+        ul#menulist {
+            grid-template-columns: repeat(1, 1fr);
+        }
     }
 }

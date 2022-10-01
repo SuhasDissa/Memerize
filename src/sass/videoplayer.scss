@@ -24,7 +24,7 @@ ul {
         overflow: hidden;
         transition-duration: 100ms;
         cursor: pointer;
-        backdrop-filter: brightness(1.2);
+        background-color: main.$background-light;
         border-radius: 10px;
 
         &:hover {
@@ -42,10 +42,7 @@ ul {
     border-radius: 25px;
     right: 10px;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(12.5px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: main.$accent;
     font-size: x-large;
     font-weight: bolder;
     overflow: hidden;
@@ -61,6 +58,7 @@ ul {
     }
 
     &:hover {
+        background-color: main.$accent-hov;
         cursor: pointer;
         width: fit-content;
 
