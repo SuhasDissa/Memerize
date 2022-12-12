@@ -48,7 +48,7 @@ function Search() {
          id: "100"
      }, data, "/movies.html?s=" + encodeURIComponent(data));*/
     document.getElementById("moviecollection").style.display = "none";
-    const kota_URL = "https://torrents-api-py3.herokuapp.com/api/v1/search?site=1337x&query=" + encodeURIComponent(data);
+    const kota_URL = "https://fastapi-suhasdissa.cloud.okteto.net/api/search?site=1337x&query=" + encodeURIComponent(data);
     const table = document.getElementById("result");
     fetch(kota_URL).then(data => {
         return data.json();
